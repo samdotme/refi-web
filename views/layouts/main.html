@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{.Title}}</title>
+    <link href="assets/tailwind.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="shadow p-2 py-4 mb-6">
+        <h1 class="text-3xl">🏠 Home Refinance Calculator</h1>
+    </header>
+    {{ yield }}
+    <footer>
+        {{ render "partials/footer.html" }}
+    </footer>
+</body>
+
+</html>
