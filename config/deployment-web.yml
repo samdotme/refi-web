@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+  namespace: refi-calc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: docker.io/samiam236/refi-web
+        name: refi-web
+        ports:
+          - containerPort: 8080
+        resources:
+          requests:
+            cpu: 300m
+            memory: "100Mi"
+          limits:
+            cpu: "1"
+            memory: "400Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: web
+  name: web
+  namespace: refi-calc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: web
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: refi-web-service-external
+  namespace: default
+spec:
+  externalName: web.refi-calc.svc.cluster.local
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  sessionAffinity: None
+  type: ExternalName

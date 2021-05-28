@@ -159,8 +159,8 @@ github.com/russross/blackfriday v1.5.2/go.mod h1:JO/DiYxRf+HjHt06OyowR9PTA263kcR
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/russross/blackfriday/v2 v2.1.0 h1:JIOH55/0cWyOuilr9/qlrm0BSXldqnqwMsf35Ld67mk=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
-github.com/samdotme/refi-calc v0.1.1 h1:g71KAFbpt4yVIIwV8/7KXccqFBICTe5OmL/bRGYoOd4=
-github.com/samdotme/refi-calc v0.1.1/go.mod h1:8PPhV7SKa5ne1jWMxcxeHrtYeOM2CJ2sGE5OVBSDHFQ=
+github.com/samdotme/refi-calc v1.2.0 h1:DK3JbYqWH0oUJS9VNw2KbHtReOmPi7cDlYPk6eo8esU=
+github.com/samdotme/refi-calc v1.2.0/go.mod h1:8PPhV7SKa5ne1jWMxcxeHrtYeOM2CJ2sGE5OVBSDHFQ=
 github.com/schollz/closestmatch v2.1.0+incompatible h1:Uel2GXEpJqOWBrlyI+oY9LTiyyjYS17cCYRqP13/SHk=
 github.com/schollz/closestmatch v2.1.0+incompatible/go.mod h1:RtP1ddjLong6gTkbtmuhtR2uUrrJOpYzYRvbcPAid+g=
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
