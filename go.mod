@@ -10,4 +10,4 @@ require (
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 )
 
-replace github.com/samdotme/refi-calc => ../refi-calc
+// replace github.com/samdotme/refi-calc => ../refi-calc

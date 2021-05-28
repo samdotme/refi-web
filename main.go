@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"math"
 	"strconv"
 
 	"github.com/kataras/iris/v12"
@@ -67,13 +68,15 @@ func handleForm(ctx iris.Context) {
 	refiAmount := data.CurrentAmount + data.ClosingCosts
 	refiPaydownPeriod := Calc.CalculatePaydownPeriod(refiAmount, data.MonthlyPayment, data.RefiRate)
 
-	ctx.JSON(iris.Map{
-		"inputData":                  data,
-		"currentPaydownPeriodMonths": curPaydownPeriod,
-		"currentPaydownPeriodYears":  curPaydownPeriod / 12,
-		"refiPaydownPeriodMonths":    refiPaydownPeriod,
-		"refiPaydownPeriodYears":     refiPaydownPeriod / 12,
-		"shouldRefi":                 refiPaydownPeriod < curPaydownPeriod,
+	ctx.ViewLayout("layouts/main")
+	ctx.View("result", iris.Map{
+		"Title":                      "Home Refinance Calculator | Results",
+		"InputData":                  data,
+		"CurrentPaydownPeriodMonths": curPaydownPeriod,
+		"CurrentPaydownPeriodYears":  math.Ceil(float64(curPaydownPeriod) / 12),
+		"RefiPaydownPeriodMonths":    refiPaydownPeriod,
+		"RefiPaydownPeriodYears":     math.Ceil(float64(refiPaydownPeriod) / 12),
+		"ShouldRefi":                 refiPaydownPeriod < curPaydownPeriod,
 	})
 }
 

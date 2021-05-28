@@ -1,0 +1,81 @@
+{{ if .ShouldRefi }}
+<div class="w-full max-w-sm mx-auto py-10">
+  <h1 class="text-2xl text-center">Nice! Looks like you <span class="text-3xl text-indigo-700">should</span> refinance
+    your home.</h1>
+</div>
+
+{{ else }}
+
+<div class="w-full max-w-sm mx-auto py-10">
+  <h1 class="text-2xl text-center">Interesting. Turns out that you
+    <span class="text-3xl text-indigo-700">shouldn't</span> refinance your home.
+  </h1>
+</div>
+
+{{ end }}
+
+<div class="w-full max-w-sm mx-auto">
+
+  <h2 class="text-xl mb-2">Here's why</h2>
+
+    <div class="py-3">
+      <h3 class="text-lg text-indigo-700">Scenario 1: Keep Current Mortgage</h3>
+      <p>At your current payment and interest rate, it will take you <span
+          class="text-indigo-700">{{.CurrentPaydownPeriodMonths}}</span> months to pay off
+        your mortgage. That's <span class="text-indigo-700">{{.CurrentPaydownPeriodYears}}</span> years.</p>
+    </div>
+
+    <div class="py-3">
+      <h3 class="text-lg text-indigo-700">Scenario 2: Refinance</h3>
+      <p>At your current payment and the refinanced interest rate, it will take you <span
+          class="text-indigo-700">{{.RefiPaydownPeriodMonths}}</span> months to pay
+        off your mortgage. That's <span class="text-indigo-700">{{.RefiPaydownPeriodYears}}</span> years.</p>
+    </div>
+
+    <h2 class="text-xl mt-8 mb-2">We're basing our recommendation on the data you entered</h2>
+
+    <div class="py-3">
+      <table class="table-auto">
+        <!-- <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Views</th>
+          </tr>
+        </thead> -->
+        <tbody>
+          <tr class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-indigo-500 tracking-wider">
+            <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">Monthly Payment</td>
+            <td>${{ .InputData.MonthlyPayment }}</td>
+          </tr>
+          <tr class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-indigo-500 tracking-wider">
+            <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">Current Loan Amount</td>
+            <td>${{ .InputData.CurrentAmount }}</td>
+          </tr>
+          <tr class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-indigo-500 tracking-wider">
+            <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">Current Rate</td>
+            <td>%{{ .InputData.CurrentRate }}</td>
+          </tr>
+          <tr class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-indigo-500 tracking-wider">
+            <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">Refinanced Rate</td>
+            <td>%{{ .InputData.RefiRate }}</td>
+          </tr>
+          <tr class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-indigo-500 tracking-wider">
+            <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">Closing Costs to Refinance</td>
+            <td>${{ .InputData.ClosingCosts }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="m-5">
+
+    <div class="w-full max-w-md mx-auto">
+      It's probably worth nothing that this is not official advice and you should talk to a banker or certified financial adviser if you have further questions.
+    </div>
+
+      <!-- <div class="w-full max-w-xs mx-auto">
+      We're always trying to improve this tool. Have any feedback to help us make it better?
+    </div> -->
+
+</div>
