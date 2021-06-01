@@ -17,7 +17,7 @@ spec:
         app: web
     spec:
       containers:
-      - image: docker.io/samiam236/refi-web:0.1.0
+      - image: docker.io/samiam236/refi-web:v1.1.0
         name: refi-web
         ports:
           - containerPort: 8080
