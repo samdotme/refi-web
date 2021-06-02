@@ -10,9 +10,14 @@
         <h1 class="text-3xl">🏠 Dare to Refi.com | A Home Refinance Calculator</h1>
     </header>
     {{ yield }}
+
+    <div id="root"></div>
+
     <footer>
         {{ render "partials/footer.html" }}
     </footer>
+
+    <script src="/build/index.bundle.js"></script>
 </body>
 
 </html>

@@ -14,6 +14,7 @@ func main() {
 	app.RegisterView(iris.HTML("./views", ".html").Reload(true))
 
 	app.HandleDir("/assets", iris.Dir("./assets"))
+	app.HandleDir("/build", iris.Dir("./front-end/build"))
 
 	app.Get("/", index)
 	app.Post("/results", handleForm)

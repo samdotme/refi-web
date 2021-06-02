@@ -1,2 +1,4 @@
 .vscode
 cluster-management
+front-end/build
+front-end/node_modules
