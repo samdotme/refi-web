@@ -1,0 +1,48 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: refi-gateway
+  namespace: refi-calc
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - daretorefi.com
+      tls:
+        httpsRedirect: true
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      hosts:
+        - daretorefi.com
+        - www.daretorefi.com
+      tls:
+        mode: SIMPLE
+        credentialName: dare-to-refi-tls
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: refi-calc
+  namespace: refi-calc
+spec:
+  hosts:
+    - daretorefi.com
+    - www.daretorefi.com
+  gateways:
+    - refi-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: web
+            port:
+              number: 80
