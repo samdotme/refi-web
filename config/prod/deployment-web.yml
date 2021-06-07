@@ -38,7 +38,8 @@ metadata:
   namespace: refi-calc
 spec:
   ports:
-  - port: 80
+  - name: http-external
+    port: 80
     protocol: TCP
     targetPort: 8080
   selector:
